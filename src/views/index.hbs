@@ -1,3 +1,29 @@
-<h1>Hello World</h1>
+<form action="/tasks/add" method="post">
+  <div>
+    <label for="title">Write a title</label>
+    <input type="text" name="title" placeholder="Title" id="title" />
+  </div>
 
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam, hic quis praesentium illo eveniet ut dolores modi autem itaque commodi.</p>
+  <div>
+    <label for="description">Description</label>
+    <textarea
+      name="description"
+      placeholder="Description"
+      id="description"
+    ></textarea>
+  </div>
+
+  <button>Add</button>
+</form>
+
+<ul>
+  {{#each tasks}}
+    <li>
+      <h1>{{title}}</h1>
+      <p>{{description}}</p>
+      <p>{{done}}</p>
+      <button>edit</button>
+      <button>delete</button>
+    </li>
+  {{/each}}
+</ul>

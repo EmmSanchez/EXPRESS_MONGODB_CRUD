@@ -3,6 +3,8 @@ import IndexRoutes from './routes/index.routes'
 // import exphbs from 'express-handlebars'
 import { create } from 'express-handlebars'
 import path from 'path'
+import './database'
+import morgan from 'morgan'
 
 const app = express()
 
@@ -19,6 +21,10 @@ app.engine(
   }).engine
 )
 app.set('view engine', '.hbs')
+
+// Middlewares
+app.use(morgan('dev'))
+app.use(express.urlencoded({ extended: false })) // Hace disponible los datos en string del req.body
 
 // Routes
 app.use(IndexRoutes)
