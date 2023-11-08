@@ -24,7 +24,7 @@ app.set('view engine', '.hbs')
 
 // Middlewares
 app.use(morgan('dev'))
-app.use(express.urlencoded({ extended: false })) // Hace disponible los datos en string del req.body
+app.use(express.urlencoded({ extended: false })) // Hace disponible los datos en string del req.body al hacer get
 
 // Routes
 app.use(IndexRoutes)

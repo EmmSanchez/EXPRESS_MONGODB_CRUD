@@ -12,11 +12,16 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/tasks/add', async (req, res) => {
-  const task = Task(req.body)
-  // Añadirlo a mongodb
-  await task.save()
+  try {
+    const task = Task(req.body)
+    // Añadirlo a mongodb
+    await task.save()
 
-  res.redirect('/')
+    res.redirect('/')
+  } catch (error) {
+    // Cuando un titulo ya existe
+    console.log(error)
+  }
 })
 
 router.get('/about', (req, res) => {
@@ -27,4 +32,4 @@ router.get('/edit', (req, res) => {
   res.render('edit')
 })
 
-export default router
+export default router // SE IMPORTA EN app.js

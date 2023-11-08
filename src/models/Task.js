@@ -25,4 +25,4 @@ const taskSchema = new Schema({
 // timestamps: true   -> Permite colocar propiedad updatedAt and createdAt
 // versionKey: false   -> Evita el __v:0 que realiza mongoDB
 
-export default model('Task', taskSchema)
+export default model('Task', taskSchema) // SE IMPORTA EN index.routes.js
